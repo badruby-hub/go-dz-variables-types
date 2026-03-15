@@ -7,10 +7,14 @@ import (
 
 func main() {
 	const imtPower = 2
-	userHeight := 1.7 //если тип будет на вывод то короткая запись
+	var userHeight float64
 	var userKG float64
-	userKG = 78 //если мы не используем сразу переменную
+	fmt.Print("Калькулятор индекса массы тела\n")
+	fmt.Print("Введите свой рост в метрах: ")
+	fmt.Scan(&userHeight)
+	fmt.Print("Введите свой вес: ")
+	fmt.Scan(&userKG)
 	imt := userKG / math.Pow(userHeight, imtPower)
-	fmt.Print(imt)
+	fmt.Print("Ваш индекс массы тела: ", imt)
 
 }
