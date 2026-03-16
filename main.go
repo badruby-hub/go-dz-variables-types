@@ -9,12 +9,14 @@ func main() {
 	const imtPower = 2
 	var userHeight float64
 	var userKG float64
-	fmt.Print("Калькулятор индекса массы тела\n")
-	fmt.Print("Введите свой рост в метрах: ")
+	fmt.Println("Калькулятор индекса массы тела")
+	fmt.Print("Введите свой рост: ")
 	fmt.Scan(&userHeight)
 	fmt.Print("Введите свой вес: ")
 	fmt.Scan(&userKG)
-	imt := userKG / math.Pow(userHeight, imtPower)
-	fmt.Print("Ваш индекс массы тела: ", imt)
+	imt := userKG / math.Pow(userHeight/100, imtPower)
+	// fmt.Printf("Ваш индекс массы тела: %v", imt)
+	// fmt.Print("Ваш индекс массы тела:", imt)
+	fmt.Printf("Ваш индекс массы тела: %.0f", imt)
 
 }
