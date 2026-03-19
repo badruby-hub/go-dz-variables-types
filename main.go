@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	const imtPower = 2
+
 	var userHeight float64
 	var userKG float64
 	fmt.Println("Калькулятор индекса массы тела")
@@ -14,7 +14,7 @@ func main() {
 	fmt.Scan(&userHeight)
 	fmt.Print("Введите свой вес: ")
 	fmt.Scan(&userKG)
-	imt := userKG / math.Pow(userHeight/100, imtPower)
+	imt := calculateIMT(userKG, userHeight)
 	outputResult(imt)
 
 }
@@ -22,4 +22,10 @@ func main() {
 func outputResult(IMT float64) {
 	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", IMT)
 	fmt.Print(result)
+}
+
+func calculateIMT(userKG float64, userHeight float64) float64 {
+	const imtPower = 2
+	imt := userKG / math.Pow(userHeight/100, imtPower)
+	return imt
 }
