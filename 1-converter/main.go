@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	const usdEur = 1 * 0.9412
-	const usdRub = 1 * 92
+	const usdt = 1
+	const rub = 92
 	sum := enterSum()
 	fmt.Print(sum)
 }
@@ -16,6 +16,6 @@ func enterSum() float64 {
 	return sum
 }
 
-func outputResult(sum float64, usdRub, usdEur float64) float64 {
+func outputResult(sum float64, fromRate, toRate float64) float64 {
 	return sum
 }
