@@ -9,6 +9,10 @@ func main() {
 	fmt.Println("Калькулятор индекса массы тела")
 	userKG, userHeight := getUSerInput()
 	imt := calculateIMT(userKG, userHeight)
+	isLean := imt < 16
+	if isLean {
+		fmt.Println("у вас недостаток веса")
+	}
 	outputResult(imt)
 
 }
