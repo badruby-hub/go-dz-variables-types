@@ -6,6 +6,10 @@ import (
 )
 
 func main() {
+	for i := 0; i < 10; i++ {
+		fmt.Printf("%d\n", i)
+	}
+
 	fmt.Println("Калькулятор индекса массы тела")
 	userKG, userHeight := getUSerInput()
 	imt := calculateIMT(userKG, userHeight)
