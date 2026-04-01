@@ -10,15 +10,17 @@ func main() {
 	userKG, userHeight := getUSerInput()
 	imt := calculateIMT(userKG, userHeight)
 	outputResult(imt)
-	if imt < 16 {
+
+	switch {
+	case imt < 16:
 		fmt.Println("у вас сильный дифецит массы тела")
-	} else if imt < 18.5 {
+	case imt < 18.5:
 		fmt.Println("у вас дифецит массы тела")
-	} else if imt < 25 {
+	case imt < 25:
 		fmt.Println("у вас нормальная  масса тела")
-	} else if imt < 30 {
+	case imt < 30:
 		fmt.Println("у вас избыточный вес")
-	} else {
+	default:
 		fmt.Println("у вас степень ожирения")
 	}
 
