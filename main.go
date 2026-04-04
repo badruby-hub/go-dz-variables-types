@@ -13,8 +13,10 @@ func main() {
 		userKG, userHeight := getUSerInput()
 		imt, err := calculateIMT(userKG, userHeight)
 		if err != nil {
-			fmt.Println("no param")
-			continue
+			// fmt.Println("no param")
+			// continue
+			panic("no param")
+
 		}
 		outputResult(imt)
 		isRepeat := checkRepeatUser()
