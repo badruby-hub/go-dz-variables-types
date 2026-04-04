@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
 )
@@ -10,7 +11,11 @@ func main() {
 
 	for {
 		userKG, userHeight := getUSerInput()
-		imt := calculateIMT(userKG, userHeight)
+		imt, err := calculateIMT(userKG, userHeight)
+		if err != nil {
+			fmt.Println("no param")
+			continue
+		}
 		outputResult(imt)
 		isRepeat := checkRepeatUser()
 
@@ -39,10 +44,13 @@ func outputResult(IMT float64) {
 	}
 }
 
-func calculateIMT(userKG float64, userHeight float64) float64 {
+func calculateIMT(userKG float64, userHeight float64) (float64, error) {
+	if userKG <= 0 || userHeight <= 0 {
+		return 0, errors.New("NO_PARAM")
+	}
 	const imtPower = 2
 	imt := userKG / math.Pow(userHeight/100, imtPower)
-	return imt
+	return imt, nil
 }
 
 func getUSerInput() (float64, float64) {
