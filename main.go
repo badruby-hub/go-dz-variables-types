@@ -7,6 +7,12 @@ import (
 )
 
 func main() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Erro Recover ", r)
+		}
+	}()
+
 	fmt.Println("Калькулятор индекса массы тела")
 
 	for {
@@ -15,7 +21,7 @@ func main() {
 		if err != nil {
 			// fmt.Println("no param")
 			// continue
-			panic("no param")
+			panic("Неправильный формат данных")
 
 		}
 		outputResult(imt)
